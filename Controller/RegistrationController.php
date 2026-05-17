@@ -57,9 +57,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         $hasError=true;
     }
 
-
-
-
     if(empty($password))
     {
         $passwordError="Password Required";
@@ -83,11 +80,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         $hasError=true;
     }
 
-
-
-
-
-    // FILE VALIDATION
     if($file["name"]!="")
     {
 

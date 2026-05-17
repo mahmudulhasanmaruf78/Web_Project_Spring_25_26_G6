@@ -152,8 +152,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         $checkQuery
     );
 
-
-
     if(mysqli_num_rows($checkResult)>0)
     {
 
@@ -165,25 +163,15 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
     }
 
 
-
-
-
     if($hasError==false)
     {
 
-
-
-
-        // PASSWORD HASH
         $hashpassword=password_hash(
             $password,
             PASSWORD_DEFAULT
         );
 
 
-
-
-        // FILE UPLOAD
         if($file["name"]!="")
         {
 
@@ -207,10 +195,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
             $path="";
         }
 
-
-
-
-        // USER MODEL
         $user=new UserModel();
 
 

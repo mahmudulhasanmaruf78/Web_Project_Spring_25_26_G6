@@ -26,8 +26,6 @@ if($_SESSION["role"]=="employer")
     );
 
 }
-
-
 elseif($_SESSION["role"]=="seeker")
 {
 
@@ -65,7 +63,6 @@ enctype="multipart/form-data">
 
 <?php
 
-// EMPLOYER EDIT
 if($_SESSION["role"]=="employer")
 {
 
@@ -89,8 +86,6 @@ echo $data["company_name"];
 </td>
 
 </tr>
-
-
 
 <tr>
 
@@ -201,9 +196,6 @@ echo $data["website"];
 
 }
 
-
-
-// SEEKER EDIT
 elseif($_SESSION["role"]=="seeker")
 {
 

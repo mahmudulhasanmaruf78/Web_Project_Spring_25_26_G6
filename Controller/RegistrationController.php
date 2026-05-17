@@ -36,11 +36,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 
     $hasError=false;
 
-
-
-
-
-    // NAME VALIDATION
     if(empty($name))
     {
         $nameError="Name Required";

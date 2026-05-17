@@ -112,8 +112,6 @@ if($data["industry"]=="Software")
 Software
 </option>
 
-
-
 <option value="Business"
 
 <?php
@@ -128,8 +126,6 @@ if($data["industry"]=="Business")
 >
 Business
 </option>
-
-
 
 <option value="Marketing"
 
@@ -170,8 +166,6 @@ echo $data["description"];
 </td>
 
 </tr>
-
-
 
 <tr>
 

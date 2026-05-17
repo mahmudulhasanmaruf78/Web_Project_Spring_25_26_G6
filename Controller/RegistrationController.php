@@ -43,11 +43,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         $hasError=true;
     }
 
-
-
-
-
-    // EMAIL VALIDATION
     if(empty($email))
     {
         $emailError="Email Required";

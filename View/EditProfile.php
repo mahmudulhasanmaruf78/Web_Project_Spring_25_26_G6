@@ -17,9 +17,6 @@ $connection=$database->connection();
 $user=new UserModel();
 
 
-
-
-// EMPLOYER DATA
 if($_SESSION["role"]=="employer")
 {
 

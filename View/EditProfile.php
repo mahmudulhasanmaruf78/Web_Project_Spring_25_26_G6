@@ -28,8 +28,6 @@ if($_SESSION["role"]=="employer")
 }
 
 
-
-// SEEKER DATA
 elseif($_SESSION["role"]=="seeker")
 {
 
@@ -43,9 +41,7 @@ elseif($_SESSION["role"]=="seeker")
 ?>
 
 <!DOCTYPE html>
-
 <html>
-
 <head>
 
 <link rel="stylesheet"

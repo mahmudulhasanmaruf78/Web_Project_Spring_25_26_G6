@@ -60,8 +60,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 
 
 
-
-    // PASSWORD VALIDATION
     if(empty($password))
     {
         $passwordError="Password Required";

@@ -39,7 +39,7 @@ href="../View/CSS/style.css">
 
 <div class="formbox">
 
-<h1>Employer Dashboard</h1>
+<h2>Employer Dashboard</h2>
 
 <h3>
 

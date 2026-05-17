@@ -125,9 +125,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 
         }
 
-
-
-        // FILE SIZE VALIDATION
         if($file["size"] > 2000000)
         {
 

@@ -1,41 +1,59 @@
-const buttons = document.querySelectorAll('.status-btn');
+// Select all status buttons
+const buttons = document.querySelectorAll(".status-btn");
 
-buttons.forEach(button => {
+// Loop through each button
+buttons.forEach(function(button) {
 
-    button.addEventListener('click', function() {
+    // When button is clicked
+    button.addEventListener("click", function() {
 
-        const jobId = this.dataset.id;
+        // Get job ID from button
+        let jobId = button.dataset.id;
 
-        fetch('../Controller/ToggleJobStatus.php', {
-            method: 'POST',
+        // Send data to PHP controller
+        fetch("../Controller/ToggleJobStatus.php", {
+
+            method: "POST",
+
             headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
+                "Content-Type": "application/x-www-form-urlencoded"
             },
-            body: 'job_id=' + jobId
+
+            body: "job_id=" + jobId
+
         })
-        .then(response => response.json())
-        .then(data => {
 
-            if(data.success)
-            {
-                if(button.innerText.trim() == 'active')
-                {
-                    button.innerText = 'closed';
+        // Convert response to JSON
+        .then(function(response) {
+            return response.json();
+        })
 
-                    button.classList.remove('active');
-                    button.classList.add('closed');
+        // Handle result
+        .then(function(data) {
+
+            // If status changed successfully
+            if (data.success) {
+
+                // Check current button text
+                if (button.innerText == "active") {
+
+                    button.innerText = "closed";
+
+                    button.classList.remove("active");
+                    button.classList.add("closed");
+
+                } else {
+
+                    button.innerText = "active";
+
+                    button.classList.remove("closed");
+                    button.classList.add("active");
                 }
-                else
-                {
-                    button.innerText = 'active';
 
-                    button.classList.remove('closed');
-                    button.classList.add('active');
-                }
-            }
-            else
-            {
-                alert(data.message);
+            } else {
+
+                alert("Status update failed");
+
             }
 
         });

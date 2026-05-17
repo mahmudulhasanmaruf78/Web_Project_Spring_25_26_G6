@@ -160,10 +160,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 
         }
 
-
-
-
-        // SEEKER UPDATE
         elseif($_SESSION["role"]=="seeker")
         {
 
@@ -205,15 +201,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
     }
 
 
-
-
-
-
-    // COMPLETE PROFILE
     else
     {
-
-        // EMPLOYER PROFILE
         if($_SESSION["role"]=="employer")
         {
 
@@ -257,10 +246,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 
         }
 
-
-
-
-        // SEEKER PROFILE
         elseif($_SESSION["role"]=="seeker")
         {
 

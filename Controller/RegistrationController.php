@@ -114,10 +114,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
             }
 
         }
-
-
-
-        // EMPLOYER IMAGE VALIDATION
         elseif($role=="employer")
         {
 

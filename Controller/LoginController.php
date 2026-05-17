@@ -94,7 +94,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
                 {
 
                     Header(
-                    "Location:../View/AdminDashboard.php"
+                    "Location:../Controller/AdminDashboardController.php"
                     );
 
                     exit();

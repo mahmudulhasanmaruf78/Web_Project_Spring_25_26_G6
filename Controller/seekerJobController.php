@@ -6,7 +6,7 @@ require_once '../Model/job.php';
 require_once '../Model/SavedJob.php';
 
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'seeker') {
-    header('Location: ../View/Login.php');
+    header('Location: ../View/login.php');
     exit;
 }
 

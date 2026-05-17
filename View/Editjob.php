@@ -2,47 +2,106 @@
 require_once '../Model/JobModel.php';
 require_once '../Model/CategoryModel.php';
 
+// Create model objects
 $jobModel = new JobModel();
 $categoryModel = new CategoryModel();
 
+// Get job ID from URL
 $id = $_GET['id'];
 
+// Get single job data
 $job = $jobModel->getJobById($id);
 $row = $job->fetch_assoc();
 
+// Get all categories
 $categories = $categoryModel->getCategories();
 ?>
 
+<h2>Update Job</h2>
+
 <form action="../Controller/JobController.php" method="POST">
 
-<input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+    <!-- Hidden Job ID -->
+    <input type="hidden" name="id"
+    value="<?php echo $row['id']; ?>">
 
-<input type="text" name="title" value="<?php echo $row['title']; ?>"><br><br>
+    <!-- Job Title -->
+    <label>Job Title:</label><br>
 
-<select name="category_id">
+    <input type="text"
+    name="title"
+    value="<?php echo $row['title']; ?>">
 
-<?php while($cat=$categories->fetch_assoc()) { ?>
+    <br><br>
 
-<option value="<?php echo $cat['id']; ?>">
-<?php echo $cat['name']; ?>
-</option>
+    <!-- Category -->
+    <label>Select Category:</label><br>
 
-<?php } ?>
+    <select name="category_id">
 
-</select><br><br>
+        <?php
+        while($cat = $categories->fetch_assoc())
+        {
+        ?>
 
-<textarea name="description"><?php echo $row['description']; ?></textarea><br><br>
+        <option value="<?php echo $cat['id']; ?>">
 
-<textarea name="requirements"><?php echo $row['requirements']; ?></textarea><br><br>
+            <?php echo $cat['name']; ?>
 
-<input type="text" name="salary" value="<?php echo $row['salary_range']; ?>"><br><br>
+        </option>
 
-<input type="text" name="location" value="<?php echo $row['location']; ?>"><br><br>
+        <?php
+        }
+        ?>
 
-<input type="date" name="deadline" value="<?php echo $row['deadline']; ?>"><br><br>
+    </select>
 
-<button type="submit" name="update">
-Update Job
-</button>
+    <br><br>
+
+    <!-- Description -->
+    <label>Description:</label><br>
+
+    <textarea name="description"><?php echo $row['description']; ?></textarea>
+
+    <br><br>
+
+    <!-- Requirements -->
+    <label>Requirements:</label><br>
+
+    <textarea name="requirements"><?php echo $row['requirements']; ?></textarea>
+
+    <br><br>
+
+    <!-- Salary -->
+    <label>Salary:</label><br>
+
+    <input type="text"
+    name="salary"
+    value="<?php echo $row['salary_range']; ?>">
+
+    <br><br>
+
+    <!-- Location -->
+    <label>Location:</label><br>
+
+    <input type="text"
+    name="location"
+    value="<?php echo $row['location']; ?>">
+
+    <br><br>
+
+    <!-- Deadline -->
+    <label>Deadline:</label><br>
+
+    <input type="date"
+    name="deadline"
+    value="<?php echo $row['deadline']; ?>">
+
+    <br><br>
+
+    <!-- Update Button -->
+    <button type="submit" name="update">
+        Update Job
+    </button>
 
 </form>

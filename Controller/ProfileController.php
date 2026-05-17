@@ -21,18 +21,11 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 
     $user = new UserModel();
 
-
-
-
-    // EDIT PROFILE UPDATE
     if(isset($_POST["update"]))
     {
 
         $userid=$_SESSION["user_id"];
 
-
-
-        // FILE UPDATE
         if($_FILES["file"]["name"]!="")
         {
 
@@ -52,9 +45,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 
         }
 
-
-
-        // PASSWORD UPDATE
         if(
         !empty($_POST["current_password"])
         &&
@@ -128,10 +118,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 
         }
 
-
-
-
-        // EMPLOYER UPDATE
         if($_SESSION["role"]=="employer")
         {
 
@@ -174,10 +160,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 
         }
 
-
-
-
-        // SEEKER UPDATE
         elseif($_SESSION["role"]=="seeker")
         {
 
@@ -219,15 +201,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
     }
 
 
-
-
-
-
-    // COMPLETE PROFILE
     else
     {
-
-        // EMPLOYER PROFILE
         if($_SESSION["role"]=="employer")
         {
 
@@ -271,10 +246,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 
         }
 
-
-
-
-        // SEEKER PROFILE
         elseif($_SESSION["role"]=="seeker")
         {
 

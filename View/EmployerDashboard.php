@@ -31,7 +31,7 @@ $user->CheckEmployerProfile(
 <head>
 
 <link rel="stylesheet"
-href="CSS/style.css">
+href="../View/CSS/style.css">
 
 </head>
 
@@ -39,7 +39,7 @@ href="CSS/style.css">
 
 <div class="formbox">
 
-<h1>Employer Dashboard</h1>
+<h2>Employer Dashboard</h2>
 
 <h3>
 
@@ -69,7 +69,6 @@ if($profile==0)
     </a>
 
     ';
-
 }
 
 ?>
@@ -103,7 +102,6 @@ Application Tracking Dashboard
 <a href="../Controller/Logout.php">
 
 Logout
-
 </a>
 
 </div>

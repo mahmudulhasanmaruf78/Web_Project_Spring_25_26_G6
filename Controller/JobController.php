@@ -5,12 +5,15 @@ require_once '../Model/JobModel.php';
 
 $model = new JobModel();
 
-if(isset($_POST['create']))
-{
-    $eid = $_SESSION['user_id'];
+/* =========================
+   CREATE JOB
+========================= */
+if (isset($_POST['create'])) {
+
+    $employer_id = $_SESSION['user_id'];
 
     $model->createJob(
-        $eid,
+        $employer_id,
         $_POST['category_id'],
         $_POST['title'],
         $_POST['description'],
@@ -21,11 +24,15 @@ if(isset($_POST['create']))
         $_POST['deadline']
     );
 
-    header("Location: ../View/Employerjob.php");
+    header("Location: ../View/EmployerJobs.php");
+    exit();
 }
 
-if(isset($_POST['update']))
-{
+/* =========================
+   UPDATE JOB
+========================= */
+if (isset($_POST['update'])) {
+
     $model->updateJob(
         $_POST['id'],
         $_POST['category_id'],
@@ -38,15 +45,20 @@ if(isset($_POST['update']))
         $_POST['deadline']
     );
 
-    header("Location: ../View/Employerjob.php");
+    header("Location: ../View/EmployerJobs.php");
+    exit();
 }
 
+/* =========================
+   DELETE JOB
+========================= */
 if(isset($_GET['delete']))
 {
     $id = $_GET['delete'];
 
-    $model->deleteJob($id);
+    $eid = $_SESSION['user_id'];
 
-    header("Location: ../View/Employerjob.php");
+    $model->deleteJob($id,$eid);
+
+    header("Location: ../View/EmployerJobs.php");
 }
-?>

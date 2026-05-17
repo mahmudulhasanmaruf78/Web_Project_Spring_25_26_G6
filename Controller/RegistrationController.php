@@ -36,11 +36,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 
     $hasError=false;
 
-
-
-
-
-    // NAME VALIDATION
     if(empty($name))
     {
         $nameError="Name Required";
@@ -48,11 +43,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         $hasError=true;
     }
 
-
-
-
-
-    // EMAIL VALIDATION
     if(empty($email))
     {
         $emailError="Email Required";
@@ -67,11 +57,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         $hasError=true;
     }
 
-
-
-
-
-    // PASSWORD VALIDATION
     if(empty($password))
     {
         $passwordError="Password Required";
@@ -88,9 +73,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 
 
 
-
-
-    // ROLE VALIDATION
     if(empty($role))
     {
         $roleError="Select Role";
@@ -98,11 +80,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         $hasError=true;
     }
 
-
-
-
-
-    // FILE VALIDATION
     if($file["name"]!="")
     {
 
@@ -114,9 +91,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
             )
         );
 
-
-
-        // SEEKER PDF VALIDATION
         if($role=="seeker")
         {
 
@@ -129,10 +103,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
             }
 
         }
-
-
-
-        // EMPLOYER IMAGE VALIDATION
         elseif($role=="employer")
         {
 
@@ -152,9 +122,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 
         }
 
-
-
-        // FILE SIZE VALIDATION
         if($file["size"] > 2000000)
         {
 
@@ -166,12 +133,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         }
 
     }
-
-
-
-
-
-    // DATABASE
     $database=new db();
 
     $connection=$database->connection();
@@ -191,8 +152,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         $checkQuery
     );
 
-
-
     if(mysqli_num_rows($checkResult)>0)
     {
 
@@ -204,25 +163,15 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
     }
 
 
-
-
-
     if($hasError==false)
     {
 
-
-
-
-        // PASSWORD HASH
         $hashpassword=password_hash(
             $password,
             PASSWORD_DEFAULT
         );
 
 
-
-
-        // FILE UPLOAD
         if($file["name"]!="")
         {
 
@@ -246,10 +195,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
             $path="";
         }
 
-
-
-
-        // USER MODEL
         $user=new UserModel();
 
 

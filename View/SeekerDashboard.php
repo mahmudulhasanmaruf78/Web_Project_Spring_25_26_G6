@@ -31,7 +31,7 @@ $user->CheckSeekerProfile(
 <head>
 
 <link rel="stylesheet"
-href="CSS/style.css">
+href="../View/CSS/style.css">
 
 </head>
 

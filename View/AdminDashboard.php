@@ -16,7 +16,7 @@ if(!isset($_SESSION["user_id"]))
 <head>
 
 <link rel="stylesheet"
-href="CSS/style.css">
+href="../View/CSS/style.css">
 
 </head>
 

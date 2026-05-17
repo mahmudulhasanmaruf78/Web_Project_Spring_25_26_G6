@@ -1,24 +1,38 @@
 <?php
+session_start();
+
 header('Content-Type: application/json');
 
 require_once '../Model/JobModel.php';
 
 $model = new JobModel();
 
-if(isset($_POST['job_id']))
+if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-    $id = $_POST['job_id'];
-
-    if($model->toggleStatus($id))
+    if(isset($_POST['job_id']))
     {
-        echo json_encode([
-            'success' => true
-        ]);
+        $id = $_POST['job_id'];
+
+        if($model->toggleStatus($id))
+        {
+            echo json_encode([
+                'success' => true,
+                'message' => 'Status updated'
+            ]);
+        }
+        else
+        {
+            echo json_encode([
+                'success' => false,
+                'message' => 'Database error'
+            ]);
+        }
     }
     else
     {
         echo json_encode([
-            'success' => false
+            'success' => false,
+            'message' => 'Job id missing'
         ]);
     }
 }

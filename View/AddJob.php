@@ -1,49 +1,94 @@
 <?php
 require_once '../Model/CategoryModel.php';
 
+// Create category model object
 $model = new CategoryModel();
 
+// Get all categories
 $categories = $model->getCategories();
 ?>
 
-<h2>Add Job</h2>
+<h2>Add New Job</h2>
 
 <form action="../Controller/JobController.php" method="POST">
 
-<input type="text" name="title" placeholder="Job Title"><br><br>
+    <!-- Job Title -->
+    <label>Job Title:</label><br>
+    <input type="text" name="title"><br><br>
 
-<select name="category_id">
+    <!-- Category -->
+    <label>Select Category:</label><br>
 
-<?php while($row=$categories->fetch_assoc()) { ?>
+    <select name="category_id">
 
-<option value="<?php echo $row['id']; ?>">
-<?php echo $row['name']; ?>
-</option>
+        <?php
+        while($row = $categories->fetch_assoc())
+        {
+        ?>
+            <option value="<?php echo $row['id']; ?>">
+                <?php echo $row['name']; ?>
+            </option>
 
-<?php } ?>
+        <?php
+        }
+        ?>
 
-</select><br><br>
+    </select>
 
-<textarea name="description" placeholder="Description"></textarea><br><br>
+    <br><br>
 
-<textarea name="requirements" placeholder="Requirements"></textarea><br><br>
+    <!-- Description -->
+    <label>Description:</label><br>
 
-<input type="text" name="salary" placeholder="Salary"><br><br>
+    <textarea name="description"></textarea>
 
-<input type="text" name="location" placeholder="Location"><br><br>
+    <br><br>
 
-<input type="radio" name="job_type" value="Full-time"> Full-time
+    <!-- Requirements -->
+    <label>Requirements:</label><br>
 
-<input type="radio" name="job_type" value="Part-time"> Part-time
+    <textarea name="requirements"></textarea>
 
-<input type="radio" name="job_type" value="Remote"> Remote
+    <br><br>
 
-<br><br>
+    <!-- Salary -->
+    <label>Salary:</label><br>
 
-<input type="date" name="deadline"><br><br>
+    <input type="text" name="salary">
 
-<button type="submit" name="create">
-Create Job
-</button>
+    <br><br>
+
+    <!-- Location -->
+    <label>Location:</label><br>
+
+    <input type="text" name="location">
+
+    <br><br>
+
+    <!-- Job Type -->
+    <label>Job Type:</label><br>
+
+    <input type="radio" name="job_type" value="Full-time">
+    Full-time
+
+    <input type="radio" name="job_type" value="Part-time">
+    Part-time
+
+    <input type="radio" name="job_type" value="Remote">
+    Remote
+
+    <br><br>
+
+    <!-- Deadline -->
+    <label>Application Deadline:</label><br>
+
+    <input type="date" name="deadline">
+
+    <br><br>
+
+    <!-- Submit Button -->
+    <button type="submit" name="create">
+        Create Job
+    </button>
 
 </form>

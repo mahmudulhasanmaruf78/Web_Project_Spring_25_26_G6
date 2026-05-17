@@ -73,7 +73,7 @@ function showJobs(jobs) {
     const list = document.getElementById('job-list');
 
     if (!jobs || jobs.length === 0) {
-        list.innerHTML = '<p class="no-jobs">কোনো job পাওয়া যায়নি।</p>';
+        list.innerHTML = '<p class="no-jobs">No Jobs।</p>';
         return;
     }
 
@@ -89,12 +89,12 @@ function showJobs(jobs) {
         html +=   '<h3>' + job.title + '</h3>';
         html +=   '<div class="company">' + (job.company_name || 'N/A') + '</div>';
         html +=   '<div class="meta">';
-        html +=      job.location + ' &nbsp; ';
-        html +=      job.job_type  + ' &nbsp; ';
-        html +=      job.salary_range;
+        html +=      + job.location + ' &nbsp; ';
+        html +=      + job.job_type  + ' &nbsp; ';
+        html +=      + job.salary_range;
         html +=   '</div>';
         html +=   '<div class="actions">';
-        html +=     '<a class="btn-view" href="../Controller/seekerJobController.php?action=show&id=' + job.id + '">View Details</a>';
+        html +=     '<a class="btn-view" href="seekerJobController.php?action=show&id=' + job.id + '">View Details</a>';
         html +=     '<button class="heart-btn ' + saved + '" data-job-id="' + job.id + '" onclick="toggleSave(this)">' + heart + '</button>';
         html +=   '</div>';
         html += '</div>';

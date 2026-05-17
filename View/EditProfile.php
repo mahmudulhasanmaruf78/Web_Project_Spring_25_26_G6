@@ -17,9 +17,6 @@ $connection=$database->connection();
 $user=new UserModel();
 
 
-
-
-// EMPLOYER DATA
 if($_SESSION["role"]=="employer")
 {
 
@@ -29,10 +26,6 @@ if($_SESSION["role"]=="employer")
     );
 
 }
-
-
-
-// SEEKER DATA
 elseif($_SESSION["role"]=="seeker")
 {
 
@@ -46,13 +39,11 @@ elseif($_SESSION["role"]=="seeker")
 ?>
 
 <!DOCTYPE html>
-
 <html>
-
 <head>
 
 <link rel="stylesheet"
-href="CSS/style.css">
+href="../View/CSS/style.css">
 
 </head>
 
@@ -72,7 +63,6 @@ enctype="multipart/form-data">
 
 <?php
 
-// EMPLOYER EDIT
 if($_SESSION["role"]=="employer")
 {
 
@@ -96,8 +86,6 @@ echo $data["company_name"];
 </td>
 
 </tr>
-
-
 
 <tr>
 
@@ -124,8 +112,6 @@ if($data["industry"]=="Software")
 Software
 </option>
 
-
-
 <option value="Business"
 
 <?php
@@ -140,8 +126,6 @@ if($data["industry"]=="Business")
 >
 Business
 </option>
-
-
 
 <option value="Marketing"
 
@@ -183,8 +167,6 @@ echo $data["description"];
 
 </tr>
 
-
-
 <tr>
 
 <td>
@@ -208,9 +190,6 @@ echo $data["website"];
 
 }
 
-
-
-// SEEKER EDIT
 elseif($_SESSION["role"]=="seeker")
 {
 
@@ -234,8 +213,6 @@ echo $data["headline"];
 </td>
 
 </tr>
-
-
 
 <tr>
 
@@ -283,8 +260,6 @@ echo $data["years_experience"];
 
 ?>
 
-
-
 <tr>
 
 <td>
@@ -300,8 +275,6 @@ name="file">
 
 </tr>
 
-
-
 <tr>
 
 <td>
@@ -316,11 +289,7 @@ name="current_password">
 </td>
 
 </tr>
-
-
-
 <tr>
-
 <td>
 New Password :
 </td>
@@ -333,8 +302,6 @@ name="new_password">
 </td>
 
 </tr>
-
-
 
 <tr>
 

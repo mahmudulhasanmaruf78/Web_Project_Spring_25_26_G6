@@ -227,7 +227,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         {
 
             $targetdirectory=
-            "../public/uploads/";
+            "../Public/uploads/";
 
 
             $path=$targetdirectory.basename(

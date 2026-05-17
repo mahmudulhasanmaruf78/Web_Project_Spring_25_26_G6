@@ -31,7 +31,7 @@ $user->CheckEmployerProfile(
 <head>
 
 <link rel="stylesheet"
-href="../CSS/style.css">
+href="CSS/style.css">
 
 </head>
 
@@ -79,6 +79,22 @@ if($profile==0)
 <a href="EditProfile.php">
 
 Edit Profile
+
+</a>
+
+<br><br>
+
+<a href="Employerjob.php">
+
+Manage Job Listings
+
+</a>
+
+<br><br>
+
+<a href="../Controller/DashboardController.php">
+
+Application Tracking Dashboard
 
 </a>
 

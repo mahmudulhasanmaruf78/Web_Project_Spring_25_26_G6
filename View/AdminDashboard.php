@@ -16,7 +16,7 @@ if(!isset($_SESSION["user_id"]))
 <head>
 
 <link rel="stylesheet"
-href="../CSS/style.css">
+href="CSS/style.css">
 
 </head>
 
@@ -37,6 +37,14 @@ echo $_SESSION["name"];
 </h3>
 
 <br>
+
+<a href="../Controller/AdminDashboardController.php">
+
+Open Admin Panel (Job Management)
+
+</a>
+
+<br><br>
 
 <a href="../Controller/Logout.php">
 

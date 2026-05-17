@@ -14,7 +14,7 @@ echo "<h1>Login Page</h1><br>";
 
 <html>
     <head>
-        <link rel="stylesheet" href="../CSS/style.css">
+        <link rel="stylesheet" href="CSS/style.css">
                               
     </head>
 

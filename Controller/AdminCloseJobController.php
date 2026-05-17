@@ -23,7 +23,7 @@ class AdminCloseJobController
 
         // Decode the PUT request
         $input = json_decode(file_get_contents('php://input'), true);
-        $jobId = $input['id'] ?? null;
+        $jobId = $input['job_id'] ?? $input['id'] ?? null;
 
         if (!$jobId) {
             http_response_code(400);

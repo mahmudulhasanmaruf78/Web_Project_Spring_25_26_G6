@@ -31,7 +31,7 @@ $user->CheckSeekerProfile(
 <head>
 
 <link rel="stylesheet"
-href="../CSS/style.css">
+href="CSS/style.css">
 
 </head>
 
@@ -79,6 +79,30 @@ if($profile==0)
 <a href="EditProfile.php">
 
 Edit Profile
+
+</a>
+
+<br><br>
+
+<a href="../Controller/seekerJobController.php?action=index">
+
+Browse Jobs
+
+</a>
+
+<br><br>
+
+<a href="../Controller/ApplicationController.php?action=myApplications">
+
+My Applications
+
+</a>
+
+<br><br>
+
+<a href="../Controller/SavedJobController.php">
+
+Saved Jobs
 
 </a>
 

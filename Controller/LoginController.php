@@ -74,8 +74,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
                 }
 
 
-
-                // SEEKER
                 elseif($result["role"]=="seeker")
                 {
 
@@ -88,8 +86,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
                 }
 
 
-
-                // ADMIN
                 elseif($result["role"]=="admin")
                 {
 

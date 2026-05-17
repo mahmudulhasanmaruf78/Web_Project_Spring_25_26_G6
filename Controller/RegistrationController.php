@@ -91,9 +91,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
             )
         );
 
-
-
-        // SEEKER PDF VALIDATION
         if($role=="seeker")
         {
 
@@ -136,12 +133,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         }
 
     }
-
-
-
-
-
-    // DATABASE
     $database=new db();
 
     $connection=$database->connection();

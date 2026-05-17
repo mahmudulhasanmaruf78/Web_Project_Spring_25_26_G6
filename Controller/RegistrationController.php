@@ -76,9 +76,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 
 
 
-
-
-    // ROLE VALIDATION
     if(empty($role))
     {
         $roleError="Select Role";

@@ -22,7 +22,7 @@ include "../Controller/RegistrationController.php";
 <title>Registration</title>
 
 <link rel="stylesheet"
-href="../CSS/style.css">
+href="../View/CSS/style.css">
 
 </head>
 

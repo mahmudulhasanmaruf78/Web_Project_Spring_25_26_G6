@@ -214,8 +214,6 @@ echo $data["headline"];
 
 </tr>
 
-
-
 <tr>
 
 <td>
@@ -262,8 +260,6 @@ echo $data["years_experience"];
 
 ?>
 
-
-
 <tr>
 
 <td>
@@ -279,8 +275,6 @@ name="file">
 
 </tr>
 
-
-
 <tr>
 
 <td>
@@ -295,11 +289,7 @@ name="current_password">
 </td>
 
 </tr>
-
-
-
 <tr>
-
 <td>
 New Password :
 </td>
@@ -312,8 +302,6 @@ name="new_password">
 </td>
 
 </tr>
-
-
 
 <tr>
 

@@ -73,7 +73,7 @@ function showJobs(jobs) {
     const list = document.getElementById('job-list');
 
     if (!jobs || jobs.length === 0) {
-        list.innerHTML = '<p class="no-jobs">কোনো job পাওয়া যায়নি।</p>';
+        list.innerHTML = '<p class="no-jobs">No Jobs।</p>';
         return;
     }
 

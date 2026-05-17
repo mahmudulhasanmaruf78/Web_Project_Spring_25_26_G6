@@ -18,14 +18,24 @@ buttons.forEach(button => {
 
             if(data.success)
             {
-                if(button.innerText == 'active')
+                if(button.innerText.trim() == 'active')
                 {
                     button.innerText = 'closed';
+
+                    button.classList.remove('active');
+                    button.classList.add('closed');
                 }
                 else
                 {
                     button.innerText = 'active';
+
+                    button.classList.remove('closed');
+                    button.classList.add('active');
                 }
+            }
+            else
+            {
+                alert(data.message);
             }
 
         });

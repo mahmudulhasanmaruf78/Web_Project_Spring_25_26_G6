@@ -69,7 +69,6 @@ if($profile==0)
     </a>
 
     ';
-
 }
 
 ?>
@@ -87,7 +86,6 @@ Edit Profile
 <a href="../Controller/Logout.php">
 
 Logout
-
 </a>
 
 </div>

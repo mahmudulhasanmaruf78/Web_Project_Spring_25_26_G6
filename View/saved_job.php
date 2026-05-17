@@ -11,7 +11,7 @@
 <nav>
     <span class="brand">JobPortal</span>
     <div>
-        <a href="../Controller/JobController.php?action=index">Job Board</a>
+        <a href="../Controller/seekerJobController.php?action=index">Job Board</a>
         <a href="../Controller/ApplicationController.php?action=myApplications">My Applications</a>
         <a href="../Controller/SavedJobController.php">Saved Jobs</a>
         <a href="../View/logout.php">Logout</a>
@@ -52,7 +52,7 @@
                     <!-- Buttons -->
                     <div class="saved-actions">
                         <a class="btn-view"
-                           href="../Controller/JobController.php?action=show&id=<?= $id ?>">
+                           href="../Controller/seekerJobController.php?action=show&id=<?= $id ?>">
                             View Details
                         </a>
                         <button class="btn-remove"

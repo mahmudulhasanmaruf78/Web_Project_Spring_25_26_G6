@@ -2,34 +2,31 @@
 
 session_start();
 
-if(!isset($_SESSION["user_id"]))
-{
+if (!isset($_SESSION["user_id"])) {
     header("Location:Login.php");
 }
 
 include "../config/db.php";
 include "../Model/UserModel.php";
 
-$database=new db();
+$database = new db();
 
-$connection=$database->connection();
+$connection = $database->connection();
 
-$user=new UserModel();
+$user = new UserModel();
 
+$data = [];
 
-if($_SESSION["role"]=="employer")
-{
+if ($_SESSION["role"] == "employer") {
 
-    $data=$user->GetEmployerProfile(
+    $data = $user->GetEmployerProfile(
         $connection,
         $_SESSION["user_id"]
     );
 
-}
-elseif($_SESSION["role"]=="seeker")
-{
+} elseif ($_SESSION["role"] == "seeker") {
 
-    $data=$user->GetSeekerProfile(
+    $data = $user->GetSeekerProfile(
         $connection,
         $_SESSION["user_id"]
     );
@@ -40,286 +37,244 @@ elseif($_SESSION["role"]=="seeker")
 
 <!DOCTYPE html>
 <html>
+
 <head>
 
-<link rel="stylesheet"
-href="../View/CSS/style.css">
+    <link rel="stylesheet" href="../View/CSS/style.css">
 
 </head>
 
 <body>
 
-<div class="formbox">
+    <div class="formbox">
 
-<h1>Edit Profile</h1>
+        <h1>Edit Profile</h1>
 
-<br>
+        <br>
 
-<form method="post"
-action="../Controller/ProfileController.php"
-enctype="multipart/form-data">
+        <form method="post" action="../Controller/ProfileController.php" enctype="multipart/form-data">
 
-<table>
+            <table>
 
-<?php
+                <?php
 
-if($_SESSION["role"]=="employer")
-{
+                if ($_SESSION["role"] == "employer") {
 
-?>
+                    ?>
 
-<tr>
+                    <tr>
 
-<td>
-Company Name :
-</td>
+                        <td>
+                            Company Name :
+                        </td>
 
-<td>
+                        <td>
 
-<input type="text"
-name="company_name"
+                            <input type="text" name="company_name" value="<?php
+                            echo $data["company_name"];
+                            ?>">
 
-value="<?php
-echo $data["company_name"];
-?>">
+                        </td>
 
-</td>
+                    </tr>
 
-</tr>
+                    <tr>
 
-<tr>
+                        <td>
+                            Industry :
+                        </td>
 
-<td>
-Industry :
-</td>
+                        <td>
 
-<td>
+                            <select name="industry">
 
-<select name="industry">
+                                <option value="Software" <?php
 
-<option value="Software"
+                                if ($data["industry"] == "Software") {
+                                    echo "selected";
+                                }
 
-<?php
+                                ?>>
+                                    Software
+                                </option>
 
-if($data["industry"]=="Software")
-{
-    echo "selected";
-}
+                                <option value="Business" <?php
 
-?>
+                                if ($data["industry"] == "Business") {
+                                    echo "selected";
+                                }
 
->
-Software
-</option>
+                                ?>>
+                                    Business
+                                </option>
 
-<option value="Business"
+                                <option value="Marketing" <?php
 
-<?php
+                                if ($data["industry"] == "Marketing") {
+                                    echo "selected";
+                                }
 
-if($data["industry"]=="Business")
-{
-    echo "selected";
-}
+                                ?>>
+                                    Marketing
+                                </option>
 
-?>
+                            </select>
 
->
-Business
-</option>
+                        </td>
 
-<option value="Marketing"
+                    </tr>
 
-<?php
 
-if($data["industry"]=="Marketing")
-{
-    echo "selected";
-}
 
-?>
+                    <tr>
 
->
-Marketing
-</option>
+                        <td>
+                            Description :
+                        </td>
 
-</select>
+                        <td>
 
-</td>
+                            <textarea name="description"><?php
+                            echo $data["description"];
+                            ?></textarea>
 
-</tr>
+                        </td>
 
+                    </tr>
 
+                    <tr>
 
-<tr>
+                        <td>
+                            Website :
+                        </td>
 
-<td>
-Description :
-</td>
+                        <td>
 
-<td>
+                            <input type="text" name="website" value="<?php
+                            echo $data["website"];
+                            ?>">
 
-<textarea
-name="description"><?php
-echo $data["description"];
-?></textarea>
+                        </td>
 
-</td>
+                    </tr>
 
-</tr>
+                    <?php
 
-<tr>
+                } elseif ($_SESSION["role"] == "seeker") {
 
-<td>
-Website :
-</td>
+                    ?>
 
-<td>
+                    <tr>
 
-<input type="text"
-name="website"
+                        <td>
+                            Headline :
+                        </td>
 
-value="<?php
-echo $data["website"];
-?>">
+                        <td>
 
-</td>
+                            <input type="text" name="headline" value="<?php
+                            echo $data["headline"];
+                            ?>">
 
-</tr>
+                        </td>
 
-<?php
+                    </tr>
 
-}
+                    <tr>
 
-elseif($_SESSION["role"]=="seeker")
-{
+                        <td>
+                            Skills :
+                        </td>
 
-?>
+                        <td>
 
-<tr>
+                            <input type="text" name="skills" value="<?php
+                            echo $data["skills"];
+                            ?>">
 
-<td>
-Headline :
-</td>
+                        </td>
 
-<td>
+                    </tr>
 
-<input type="text"
-name="headline"
 
-value="<?php
-echo $data["headline"];
-?>">
 
-</td>
+                    <tr>
 
-</tr>
+                        <td>
+                            Years Experience :
+                        </td>
 
-<tr>
+                        <td>
 
-<td>
-Skills :
-</td>
+                            <input type="number" name="experience" value="<?php
+                            echo $data["years_experience"];
+                            ?>">
 
-<td>
+                        </td>
 
-<input type="text"
-name="skills"
+                    </tr>
 
-value="<?php
-echo $data["skills"];
-?>">
+                    <?php
 
-</td>
+                }
 
-</tr>
+                ?>
 
+                <tr>
 
+                    <td>
+                        Upload New File :
+                    </td>
 
-<tr>
+                    <td>
 
-<td>
-Years Experience :
-</td>
+                        <input type="file" name="file">
 
-<td>
+                    </td>
 
-<input type="number"
-name="experience"
+                </tr>
 
-value="<?php
-echo $data["years_experience"];
-?>">
+                <tr>
 
-</td>
+                    <td>
+                        Current Password :
+                    </td>
 
-</tr>
+                    <td>
 
-<?php
+                        <input type="password" name="current_password">
 
-}
+                    </td>
 
-?>
+                </tr>
+                <tr>
+                    <td>
+                        New Password :
+                    </td>
 
-<tr>
+                    <td>
 
-<td>
-Upload New File :
-</td>
+                        <input type="password" name="new_password">
 
-<td>
+                    </td>
 
-<input type="file"
-name="file">
+                </tr>
 
-</td>
+                <tr>
 
-</tr>
+                    <td>
 
-<tr>
+                        <input type="submit" name="update" value="Update Profile">
 
-<td>
-Current Password :
-</td>
+                    </td>
 
-<td>
+                </tr>
 
-<input type="password"
-name="current_password">
+            </table>
 
-</td>
+        </form>
 
-</tr>
-<tr>
-<td>
-New Password :
-</td>
-
-<td>
-
-<input type="password"
-name="new_password">
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-
-<input type="submit"
-name="update"
-value="Update Profile">
-
-</td>
-
-</tr>
-
-</table>
-
-</form>
-
-</div>
+    </div>
 
 </body>
 

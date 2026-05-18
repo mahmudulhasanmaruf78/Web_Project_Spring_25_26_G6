@@ -16,7 +16,7 @@ class CategoryModel
     public function addCategory($name)
     {
         $sql = "INSERT INTO categories(name) VALUES(?)";
-        $stmt = $this->connection->prepare($sql);
+        $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("s", $name);
         return $stmt->execute();
     }
@@ -25,14 +25,14 @@ class CategoryModel
     public function getCategories()
     {
         $sql = "SELECT * FROM categories";
-        return $this->connection->query($sql);
+        return $this->conn->query($sql);
     }
 
     // Get category by ID
     public function getCategoryById($id)
     {
         $sql = "SELECT * FROM categories WHERE id=?";
-        $stmt = $this->connection->prepare($sql);
+        $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("i", $id);
         $stmt->execute();
         return $stmt->get_result();
@@ -42,7 +42,7 @@ class CategoryModel
     public function updateCategory($id, $name)
     {
         $sql = "UPDATE categories SET name=? WHERE id=?";
-        $stmt = $this->connection->prepare($sql);
+        $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("si", $name, $id);
         return $stmt->execute();
     }
@@ -51,7 +51,7 @@ class CategoryModel
     public function deleteCategory($id)
     {
         $sql = "DELETE FROM categories WHERE id=?";
-        $stmt = $this->connection->prepare($sql);
+        $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("i", $id);
         return $stmt->execute();
     }
@@ -60,7 +60,7 @@ class CategoryModel
     public function checkJobs($id)
     {
         $sql = "SELECT * FROM jobs WHERE category_id=?";
-        $stmt = $this->connection->prepare($sql);
+        $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("i", $id);
         $stmt->execute();
 

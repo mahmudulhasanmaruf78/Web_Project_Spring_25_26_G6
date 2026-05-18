@@ -1,8 +1,8 @@
 <?php
 
-$emailError="";
+$emailError = "";
 
-$passwordError="";
+$passwordError = "";
 
 include "../Controller/LoginController.php";
 
@@ -13,77 +13,79 @@ echo "<h1>Login Page</h1><br>";
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <link rel="stylesheet" href="CSS/style.css">
-                              
-    </head>
+
+<head>
+    <link rel="stylesheet" href="CSS/style.css">
+
+</head>
 
 <body>
     <div class="formbox">
 
-<form method="post"
-action="../Controller/LoginController.php">
+        <form method="post" action="../Controller/LoginController.php">
 
-<table>
+            <table>
 
-<tr>
+                <tr>
 
-<td>
-<label>Email :</label>
-</td>
+                    <td>
+                        <label>Email :</label>
+                    </td>
 
-<td>
+                    <td>
 
-<input type="email"
-name="email">
+                        <input type="email" name="email">
 
-<?php
-echo $emailError;
-?>
+                        <?php
+                        echo $emailError;
+                        ?>
 
-</td>
+                    </td>
 
-</tr>
+                </tr>
 
 
 
-<tr>
+                <tr>
 
-<td>
-<label>Password :</label>
-</td>
+                    <td>
+                        <label>Password :</label>
+                    </td>
 
-<td>
+                    <td>
 
-<input type="password"
-name="password">
+                        <input type="password" name="password">
 
-<?php
-echo $passwordError;
-?>
+                        <?php
+                        echo $passwordError;
+                        ?>
 
-</td>
+                    </td>
 
-</tr>
-
+                </tr>
 
 
-<tr>
 
-<td>
+                <tr>
 
-<input type="submit"
-name="submit"
-value="Login">
+                    <td>
 
-</td>
+                        <input type="submit" name="submit" value="Login">
 
-</tr>
+                    </td>
 
-</table>
+                </tr>
 
-</form>
-</div>
+            </table>
+            <br><br>
+
+            <a href="../View/Registration.php">
+                Don't Have Account? Register
+            </a>
+
+        </form>
+
+    </div>
 </body>
 
 </html>

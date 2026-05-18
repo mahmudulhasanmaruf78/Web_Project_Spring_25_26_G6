@@ -7,7 +7,11 @@
     <link rel="stylesheet" href="../Public/CSS/apply_form.css">
 </head>
 <body>
-
+<?php
+$job = $job ?? ['title' => '', 'company_name' => '', 'location' => ''];
+$errors = $errors ?? [];
+$profile_resume = $profile_resume ?? null;
+?>
 <nav>
     <span class="brand">JobPortal</span>
     <div>

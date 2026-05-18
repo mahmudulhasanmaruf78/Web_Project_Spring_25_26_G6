@@ -37,6 +37,7 @@
     <div class="filters">
         <select id="filter-category">
             <option value="">All Categories</option>
+            <?php $categories = $categories ?? []; ?>
             <?php foreach ($categories as $cat): ?>
                 <option value="<?= $cat['id'] ?>">
                     <?php echo htmlspecialchars($cat['name']) ?>
@@ -59,6 +60,7 @@
         <?php if (empty($jobs)): ?>
             <p class="no-jobs">No job founded.</p>
         <?php else: ?>
+              <?php $savedIds = $savedIds ?? []; ?>
               <?php foreach ($jobs as $job):
                 $isSaved  = in_array($job['id'], $savedIds);
                 $heart    = $isSaved ? '&#10084;' : '&#129293;' ;
@@ -98,7 +100,7 @@
 </div>
 
 <script>
-  const savedJobIds = <?= json_encode($savedIds) ?>;
+  const savedJobIds = <?= json_encode($savedIds ?? []) ?>;
 </script>
 <script src="../Public/JS/job_board.js"></script>
 </body>
